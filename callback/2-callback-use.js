@@ -41,3 +41,18 @@
 
   console.log('end');
 }
+
+// named async callback
+{
+  const fs = require('node:fs');
+
+  const print = (file, err, data) => {
+    console.log({ file, lines: data.split('\n').length });
+  };
+
+  const fileName = './1-callback.js';
+
+  const callback = print.bind(null, fileName);
+
+  fs.readFile(fileName, 'utf-8', callback);
+}
