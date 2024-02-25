@@ -26,3 +26,18 @@
     if (boxes.length === 0) clearInterval(timer);
   }, 1000);
 }
+
+// in async I/O
+{
+  const fs = require('node:fs');
+  fs.readFile('./1-callback.js', 'utf-8', (err, data) => {
+    if (err) {
+      // const error = new Error(err);
+      console.error(err);
+      return;
+    }
+    console.log({ lines: data.split('\n').length });
+  });
+
+  console.log('end');
+}
