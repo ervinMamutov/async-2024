@@ -56,3 +56,18 @@
 
   fs.readFile(fileName, 'utf-8', callback);
 }
+
+// named callback with closure
+{
+  const fs = require('node:fs');
+
+  const print = (file) => (err, data) => {
+    console.log({ file, lines: data.split('\n').length });
+  };
+
+  const fileName = './1-callback.js';
+
+  const callback = print(fileName);
+
+  fs.readFile(fileName, 'utf-8', callback);
+}
