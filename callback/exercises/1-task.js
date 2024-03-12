@@ -2,10 +2,10 @@
 
 //Task: rewrite function to return result into sync callback:
 // Change signature to: (items, callback(result))
-const total = (items, callback) => {
+const total = (items, money) => {
   for (const item of items) {
     const element = item.price;
-    callback(element);
+    money(element);
   }
 };
 
